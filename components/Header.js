@@ -17,9 +17,11 @@ function Header() {
         data-file="components/Header.js"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center py-4 space-y-3 md:space-y-0">
+          
+          {/* Wrapper utama */}
+          <div className="flex justify-between items-center py-4">
 
-            {/* Logo dan nama */}
+            {/* Logo dan nama (kiri) */}
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
                 <div className="icon-wallet text-xl text-white"></div>
@@ -54,21 +56,22 @@ function Header() {
               </a>
             </nav>
 
-            {/* Navigasi Mobile */}
-            <div className="md:hidden flex justify-center items-center gap-4 w-full mt-1">
+            {/* Navigasi Mobile (kanan) */}
+            <div className="flex md:hidden items-center space-x-3">
               <a
                 href="login.html"
-                className="text-sm font-medium text-[var(--primary-color)] border border-[var(--primary-color)] rounded-full px-4 py-2 transition-all duration-200 hover:bg-[var(--primary-color)] hover:text-white"
+                className="text-sm font-medium text-[var(--primary-color)] border border-[var(--primary-color)] rounded-full px-3 py-1 transition-all duration-200 hover:bg-[var(--primary-color)] hover:text-white"
               >
                 Masuk
               </a>
               <a
                 href="register.html"
-                className="text-sm font-medium bg-[var(--primary-color)] text-white rounded-full px-4 py-2 transition-all duration-200 hover:opacity-90"
+                className="text-sm font-medium bg-[var(--primary-color)] text-white rounded-full px-3 py-1 transition-all duration-200 hover:opacity-90"
               >
                 Daftar
               </a>
             </div>
+
           </div>
         </div>
       </header>
