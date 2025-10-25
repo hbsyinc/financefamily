@@ -5,7 +5,7 @@ function Header() {
     const scrollToSection = (sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
       setIsMobileMenuOpen(false);
     };
@@ -32,13 +32,13 @@ function Header() {
             {/* Navigasi Desktop */}
             <nav className="hidden md:flex items-center space-x-8">
               <button
-                onClick={() => scrollToSection('features')}
+                onClick={() => scrollToSection("features")}
                 className="text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-all duration-200 hover:scale-105"
               >
                 Fitur
               </button>
               <button
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => scrollToSection("pricing")}
                 className="text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-all duration-200 hover:scale-105"
               >
                 Harga
@@ -55,16 +55,16 @@ function Header() {
             </nav>
 
             {/* Navigasi Mobile */}
-            <div className="md:hidden flex w-full justify-center items-center space-x-4">
+            <div className="md:hidden flex justify-center items-center gap-4 w-full mt-1">
               <a
                 href="login.html"
-                className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-200"
+                className="text-sm font-medium text-[var(--primary-color)] border border-[var(--primary-color)] rounded-full px-4 py-2 transition-all duration-200 hover:bg-[var(--primary-color)] hover:text-white"
               >
                 Masuk
               </a>
               <a
                 href="register.html"
-                className="btn-primary text-sm px-4 py-2"
+                className="text-sm font-medium bg-[var(--primary-color)] text-white rounded-full px-4 py-2 transition-all duration-200 hover:opacity-90"
               >
                 Daftar
               </a>
