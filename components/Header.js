@@ -11,21 +11,21 @@ function Header() {
         data-name="header"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Selalu satu baris kiri-kanan */}
-          <div className="flex flex-row items-center justify-between py-3 w-full">
+          {/* Flex container untuk kiri-kanan selalu sejajar */}
+          <div className="flex flex-row items-center justify-between py-3 w-full gap-2">
 
             {/* KIRI: Logo + Nama */}
-            <div className="flex items-center space-x-2">
-              <div className="w-9 h-9 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
+            <div className="flex flex-row items-center space-x-2 min-w-0">
+              <div className="w-9 h-9 bg-[var(--primary-color)] rounded-lg flex items-center justify-center flex-shrink-0">
                 <div className="icon-wallet text-lg text-white"></div>
               </div>
-              <span className="text-xl font-bold text-[var(--primary-color)] whitespace-nowrap">
+              <span className="text-lg sm:text-xl font-bold text-[var(--primary-color)] truncate">
                 FinanceFamily
               </span>
             </div>
 
-            {/* KANAN: Tombol Masuk & Daftar (selalu horizontal di semua ukuran) */}
-            <div className="flex flex-row items-center space-x-2">
+            {/* KANAN: Tombol Masuk & Daftar */}
+            <div className="flex flex-row items-center space-x-2 flex-shrink-0">
               <a
                 href="login.html"
                 className="text-sm font-medium text-[var(--primary-color)] border border-[var(--primary-color)] rounded-full px-3 py-1 transition-all duration-200 hover:bg-[var(--primary-color)] hover:text-white whitespace-nowrap"
