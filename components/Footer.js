@@ -9,7 +9,7 @@ function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             
-            {/* Kolom 1 - Deskripsi */}
+            {/* Kolom 1 - Deskripsi + Alamat */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
@@ -20,9 +20,11 @@ function Footer() {
               <p className="text-gray-400 mb-3">
                 Aplikasi manajemen keuangan keluarga yang membantu Anda mencapai tujuan finansial dengan mudah dan terorganisir.
               </p>
-              {/* Alamat ditambahkan di sini */}
+
+              {/* 📍 Alamat */}
               <p className="text-gray-400 text-sm">
-                📍 Alamat: <span className="text-gray-300">Bendo, Padas, Ngawi</span>
+                📍 <span className="font-semibold text-white">Alamat:</span>{" "}
+                <span className="font-bold text-gray-200">Bendo, Padas, Ngawi</span>
               </p>
             </div>
 
