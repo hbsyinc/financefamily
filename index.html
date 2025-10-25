@@ -16,19 +16,6 @@
     content="keuangan keluarga, manajemen keuangan, anggaran, pemasukan, pengeluaran"
   />
 
-  <!-- SEO + Social -->
-  <meta property="og:title" content="FinanceFamily - Kelola Keuangan Keluarga Anda" />
-  <meta
-    property="og:description"
-    content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah"
-  />
-  <meta name="twitter:title" content="FinanceFamily - Kelola Keuangan Keluarga Anda" />
-  <meta
-    name="twitter:description"
-    content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah"
-  />
-
-  <!-- React + Babel + Tailwind -->
   <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
   <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
@@ -38,90 +25,149 @@
     rel="stylesheet"
   />
 
-  <style type="text/tailwindcss">
-    @layer theme {
-      :root {
-        --primary-color: #10b981;
-        --secondary-color: #059669;
-        --accent-color: #34d399;
-        --background: #ffffff;
-        --surface: #f9fafb;
-        --text-primary: #111827;
-        --text-secondary: #6b7280;
-        --border-color: #e5e7eb;
-      }
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111827;
+      margin: 0;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      -webkit-font-smoothing: antialiased;
     }
 
-    @layer base {
-      html, body {
-        margin: 0;
-        padding: 0;
-        min-height: 100%;
-        background-color: var(--background);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        color: var(--text-primary);
-        -webkit-font-smoothing: antialiased;
-        -webkit-text-size-adjust: 100%;
-        /* Untuk area layar dengan notch di iPhone */
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-        scroll-behavior: smooth;
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    @layer components {
-      .btn-primary {
-        @apply px-5 sm:px-6 py-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)]
-        text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300;
-      }
-
-      .btn-secondary {
-        @apply px-5 sm:px-6 py-3 bg-white text-[var(--primary-color)] border-2 border-[var(--primary-color)]
-        rounded-lg font-semibold hover:bg-gradient-to-r hover:from-[var(--primary-color)] hover:to-[var(--secondary-color)]
-        hover:text-white hover:shadow-lg transition-all duration-300;
-      }
-
-      .card-hover {
-        @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
-      }
-
-      .gradient-bg {
-        @apply bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50;
-      }
-
-      .container-responsive {
-        @apply max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8;
-      }
+    .btn-primary {
+      background: linear-gradient(to right, #10b981, #059669);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
     }
 
-    /* Responsivitas tambahan */
-    @layer utilities {
-      .text-balance {
-        text-wrap: balance;
-      }
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #10b981;
+      border: 2px solid #10b981;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(to right, #10b981, #059669);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
     }
   </style>
 </head>
 
-<body class="gradient-bg flex flex-col min-h-screen">
-  <div id="root" class="flex-grow"></div>
+<body class="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex flex-col min-h-screen">
+  <div id="root" class="flex-grow w-full"></div>
 
-  <!-- Script React Components -->
-  <script type="text/babel" src="components/Header.js"></script>
-  <script type="text/babel" src="components/Hero.js"></script>
-  <script type="text/babel" src="components/Features.js"></script>
-  <script type="text/babel" src="components/Pricing.js"></script>
-  <script type="text/babel" src="components/Footer.js"></script>
-  <script type="text/babel" src="app.js"></script>
+  <!-- React Components -->
+  <script type="text/babel">
+    function Header() {
+      return (
+        <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+          <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <h1 className="text-lg sm:text-2xl font-bold text-emerald-600">FinanceFamily</h1>
+            <button className="sm:hidden text-emerald-700" id="menu-btn">☰</button>
+            <nav className="hidden sm:flex gap-6 text-gray-600">
+              <a href="#fitur" className="hover:text-emerald-600">Fitur</a>
+              <a href="#harga" className="hover:text-emerald-600">Harga</a>
+              <a href="#kontak" className="hover:text-emerald-600">Kontak</a>
+            </nav>
+          </div>
+        </header>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-6 text-center bg-gradient-to-b from-emerald-50 to-white">
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4 leading-tight">
+            Kelola Keuangan Keluarga Lebih Mudah & Efisien
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-md sm:max-w-xl mx-auto">
+            Catat pemasukan, kontrol pengeluaran, dan capai tujuan finansial Anda dengan FinanceFamily.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="btn-primary">Mulai Sekarang</button>
+            <button className="btn-secondary">Pelajari Lebih Lanjut</button>
+          </div>
+        </section>
+      );
+    }
+
+    function Features() {
+      const fitur = [
+        { title: "Pencatatan Otomatis", desc: "Input cepat untuk pemasukan & pengeluaran." },
+        { title: "Grafik Keuangan", desc: "Pantau tren finansial keluarga Anda." },
+        { title: "Laporan Bulanan", desc: "Dapatkan laporan PDF & Excel otomatis." },
+      ];
+
+      return (
+        <section id="fitur" className="py-12 sm:py-20 px-6">
+          <h3 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-8">Fitur Unggulan</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {fitur.map((f, i) => (
+              <div key={i} className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition">
+                <h4 className="text-lg sm:text-xl font-semibold text-emerald-600 mb-2">{f.title}</h4>
+                <p className="text-gray-600">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function Pricing() {
+      return (
+        <section id="harga" className="bg-emerald-50 py-12 sm:py-20 px-6 text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Langganan Mudah</h3>
+          <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
+            <p className="text-gray-600 mb-4">Trial Gratis 3 Hari</p>
+            <h4 className="text-4xl font-bold text-emerald-600 mb-4">Rp50.000/bulan</h4>
+            <p className="text-gray-500 mb-6">Bayar via Shopeepay & Gopay</p>
+            <button className="btn-primary w-full">Langganan Sekarang</button>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer id="kontak" className="bg-white shadow-inner py-6 mt-auto text-center text-gray-600 text-sm">
+          © 2025 FinanceFamily - Dibuat oleh Hengky Setiawan
+        </footer>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <Header />
+          <Hero />
+          <Features />
+          <Pricing />
+          <Footer />
+        </>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
 </body>
 </html>
