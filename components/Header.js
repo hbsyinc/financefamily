@@ -11,7 +11,11 @@ function Header() {
     };
 
     return (
-      <header className="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100" data-name="header" data-file="components/Header.js">
+      <header
+        className="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100"
+        data-name="header"
+        data-file="components/Header.js"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center py-4 space-y-3 md:space-y-0">
             
@@ -48,12 +52,12 @@ function Header() {
               </a>
             </nav>
 
-            {/* Navigasi Mobile */}
-            <div className="md:hidden flex flex-col items-center space-y-2">
+            {/* Navigasi Mobile - menyamping */}
+            <div className="md:hidden flex flex-row items-center space-x-3">
               <a href="login.html" className="text-sm text-[var(--text-secondary)]">
                 Masuk
               </a>
-              <a href="register.html" className="btn-primary text-sm px-5 py-2">
+              <a href="register.html" className="btn-primary text-sm px-4 py-2">
                 Daftar
               </a>
             </div>
