@@ -2,9 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- ✅ Perbaikan untuk responsivitas Android & iPhone -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanceFamily - Kelola Keuangan Keluarga Anda</title>
     <meta name="description" content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah">
     <meta name="keywords" content="keuangan keluarga, manajemen keuangan, anggaran, pemasukan, pengeluaran">
@@ -38,23 +36,6 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             color: var(--text-primary);
             background-color: var(--background);
-            /* ✅ Tambahan agar layout aman di semua device */
-            margin: 0;
-            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-size-adjust: 100%;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        img, video, canvas {
-            max-width: 100%;
-            height: auto;
-        }
-
-        #root {
-            width: 100%;
-            overflow-x: hidden;
         }
     }
 
@@ -70,32 +51,6 @@
         }
         .gradient-bg {
             @apply bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50;
-        }
-
-        /* ✅ Tambahan agar komponen fleksibel di HP */
-        .responsive-container {
-            @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
-        }
-    }
-
-    /* ✅ Tambahan penyesuaian khusus layar kecil */
-    @layer utilities {
-        @media (max-width: 640px) {
-            h1, h2, h3, h4, p {
-                @apply text-center leading-snug;
-            }
-
-            .btn-primary, .btn-secondary {
-                @apply w-full text-sm py-3;
-            }
-
-            .card-hover {
-                @apply mb-4;
-            }
-
-            section, header, footer {
-                @apply px-4;
-            }
         }
     }
     </style>
