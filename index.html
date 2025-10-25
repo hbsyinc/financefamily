@@ -1,173 +1,97 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta 
-    name="viewport" 
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-  />
-  <title>FinanceFamily - Kelola Keuangan Keluarga Anda</title>
-  <meta
-    name="description"
-    content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah"
-  />
-  <meta
-    name="keywords"
-    content="keuangan keluarga, manajemen keuangan, anggaran, pemasukan, pengeluaran"
-  />
+    <meta charset="UTF-8">
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    >
+    <title>FinanceFamily - Kelola Keuangan Keluarga Anda</title>
+    <meta name="description" content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah">
+    <meta name="keywords" content="keuangan keluarga, manajemen keuangan, anggaran, pemasukan, pengeluaran">
+    <meta property="og:title" content="FinanceFamily - Kelola Keuangan Keluarga Anda">
+    <meta property="og:description" content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah">
+    <meta name="twitter:title" content="FinanceFamily - Kelola Keuangan Keluarga Anda">
+    <meta name="twitter:description" content="Aplikasi manajemen keuangan keluarga yang membantu Anda mengelola pemasukan, pengeluaran, anggaran, dan tujuan keuangan dengan mudah">
 
-  <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
-  <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css"
-    rel="stylesheet"
-  />
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background-color: #ffffff;
-      color: #111827;
-      margin: 0;
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-      -webkit-font-smoothing: antialiased;
-    }
+    <!-- ✅ Tambahan CSS untuk memperbaiki responsivitas -->
+    <style>
+        html, body {
+            margin: 0;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            min-height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #111827;
+            scroll-behavior: smooth;
+        }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+        /* ✅ Pastikan elemen tidak terlalu besar di HP */
+        img, video, canvas {
+            max-width: 100%;
+            height: auto;
+        }
 
-    .btn-primary {
-      background: linear-gradient(to right, #10b981, #059669);
-      color: #fff;
-      font-weight: 600;
-      border-radius: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      transition: all 0.3s ease;
-    }
+        /* ✅ Kontainer agar tidak terlalu lebar di layar kecil */
+        .container {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
 
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
-    }
+        /* ✅ Tambahan untuk padding aman di iPhone dengan notch */
+        @supports (padding: max(0px)) {
+            body {
+                padding-top: max(env(safe-area-inset-top), 0px);
+                padding-bottom: max(env(safe-area-inset-bottom), 0px);
+            }
+        }
 
-    .btn-secondary {
-      background: #fff;
-      color: #10b981;
-      border: 2px solid #10b981;
-      font-weight: 600;
-      border-radius: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      transition: all 0.3s ease;
-    }
+        /* ✅ Perbaiki tombol agar tidak terlalu besar di layar kecil */
+        .btn-primary, .btn-secondary {
+            font-size: clamp(14px, 3vw, 16px);
+        }
 
-    .btn-secondary:hover {
-      background: linear-gradient(to right, #10b981, #059669);
-      color: #fff;
-      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
-    }
-  </style>
+        /* ✅ Perbaiki tampilan grid dan card agar fleksibel di mobile */
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 640px) {
+            .card-hover {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* ✅ Pastikan text wrapping di layar kecil */
+        h1, h2, h3, h4, p {
+            word-wrap: break-word;
+        }
+
+        /* ✅ Jaga agar elemen React tidak keluar layar */
+        #root {
+            width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
+<body>
+    <div id="root"></div>
 
-<body class="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex flex-col min-h-screen">
-  <div id="root" class="flex-grow w-full"></div>
-
-  <!-- React Components -->
-  <script type="text/babel">
-    function Header() {
-      return (
-        <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
-          <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-            <h1 className="text-lg sm:text-2xl font-bold text-emerald-600">FinanceFamily</h1>
-            <button className="sm:hidden text-emerald-700" id="menu-btn">☰</button>
-            <nav className="hidden sm:flex gap-6 text-gray-600">
-              <a href="#fitur" className="hover:text-emerald-600">Fitur</a>
-              <a href="#harga" className="hover:text-emerald-600">Harga</a>
-              <a href="#kontak" className="hover:text-emerald-600">Kontak</a>
-            </nav>
-          </div>
-        </header>
-      );
-    }
-
-    function Hero() {
-      return (
-        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-6 text-center bg-gradient-to-b from-emerald-50 to-white">
-          <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4 leading-tight">
-            Kelola Keuangan Keluarga Lebih Mudah & Efisien
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-md sm:max-w-xl mx-auto">
-            Catat pemasukan, kontrol pengeluaran, dan capai tujuan finansial Anda dengan FinanceFamily.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="btn-primary">Mulai Sekarang</button>
-            <button className="btn-secondary">Pelajari Lebih Lanjut</button>
-          </div>
-        </section>
-      );
-    }
-
-    function Features() {
-      const fitur = [
-        { title: "Pencatatan Otomatis", desc: "Input cepat untuk pemasukan & pengeluaran." },
-        { title: "Grafik Keuangan", desc: "Pantau tren finansial keluarga Anda." },
-        { title: "Laporan Bulanan", desc: "Dapatkan laporan PDF & Excel otomatis." },
-      ];
-
-      return (
-        <section id="fitur" className="py-12 sm:py-20 px-6">
-          <h3 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-8">Fitur Unggulan</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {fitur.map((f, i) => (
-              <div key={i} className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition">
-                <h4 className="text-lg sm:text-xl font-semibold text-emerald-600 mb-2">{f.title}</h4>
-                <p className="text-gray-600">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      );
-    }
-
-    function Pricing() {
-      return (
-        <section id="harga" className="bg-emerald-50 py-12 sm:py-20 px-6 text-center">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Langganan Mudah</h3>
-          <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
-            <p className="text-gray-600 mb-4">Trial Gratis 3 Hari</p>
-            <h4 className="text-4xl font-bold text-emerald-600 mb-4">Rp50.000/bulan</h4>
-            <p className="text-gray-500 mb-6">Bayar via Shopeepay & Gopay</p>
-            <button className="btn-primary w-full">Langganan Sekarang</button>
-          </div>
-        </section>
-      );
-    }
-
-    function Footer() {
-      return (
-        <footer id="kontak" className="bg-white shadow-inner py-6 mt-auto text-center text-gray-600 text-sm">
-          © 2025 FinanceFamily - Dibuat oleh Hengky Setiawan
-        </footer>
-      );
-    }
-
-    function App() {
-      return (
-        <>
-          <Header />
-          <Hero />
-          <Features />
-          <Pricing />
-          <Footer />
-        </>
-      );
-    }
-
-    ReactDOM.render(<App />, document.getElementById("root"));
-  </script>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/Hero.js"></script>
+    <script type="text/babel" src="components/Features.js"></script>
+    <script type="text/babel" src="components/Pricing.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="app.js"></script>
 </body>
 </html>
