@@ -17,20 +17,20 @@ function Header() {
         data-file="components/Header.js"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Gunakan flex dan justify-between agar kiri-kanan sejajar */}
-          <div className="flex justify-between items-center py-4">
+          {/* wrapper utama: selalu satu baris (kiri-kanan) */}
+          <div className="flex items-center justify-between py-4">
 
-            {/* Logo kiri */}
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
+            {/* LEFT: Logo + Nama (kiri) */}
+            <div className="flex items-center space-x-2 min-w-0">
+              <div className="w-10 h-10 flex-shrink-0 bg-[var(--primary-color)] rounded-lg flex items-center justify-center">
                 <div className="icon-wallet text-xl text-white"></div>
               </div>
-              <span className="text-2xl font-bold text-[var(--primary-color)]">
+              <span className="text-2xl font-bold text-[var(--primary-color)] whitespace-nowrap">
                 FinanceFamily
               </span>
             </div>
 
-            {/* Navigasi kanan (Desktop) */}
+            {/* RIGHT: Desktop nav (hidden on mobile) */}
             <nav className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection("features")}
@@ -55,22 +55,22 @@ function Header() {
               </a>
             </nav>
 
-            {/* Navigasi kanan (Mobile) */}
-            <div className="flex md:hidden items-center space-x-3">
+            {/* RIGHT: Mobile buttons (visible only on mobile) */}
+            <div className="flex md:hidden items-center space-x-3 flex-shrink-0">
               <a
                 href="login.html"
-                className="text-sm font-medium text-[var(--primary-color)] border border-[var(--primary-color)] rounded-full px-3 py-1 transition-all duration-200 hover:bg-[var(--primary-color)] hover:text-white"
+                className="text-sm font-medium text-[var(--primary-color)] border border-[var(--primary-color)] rounded-full px-3 py-1 transition-all duration-200 hover:bg-[var(--primary-color)] hover:text-white whitespace-nowrap"
               >
                 Masuk
               </a>
+
               <a
                 href="register.html"
-                className="text-sm font-medium bg-[var(--primary-color)] text-white rounded-full px-3 py-1 transition-all duration-200 hover:opacity-90"
+                className="text-sm font-medium bg-[var(--primary-color)] text-white rounded-full px-3 py-1 transition-all duration-200 hover:opacity-90 whitespace-nowrap"
               >
                 Daftar
               </a>
             </div>
-
           </div>
         </div>
       </header>
