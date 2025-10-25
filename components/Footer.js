@@ -21,9 +21,9 @@ function Footer() {
                 Aplikasi manajemen keuangan keluarga yang membantu Anda mencapai tujuan finansial dengan mudah dan terorganisir.
               </p>
 
-              {/* 📍 Alamat */}
+              {/*  Alamat */}
               <p className="text-gray-400 text-sm">
-                📍 <span className="font-semibold text-white">Alamat:</span>{" "}
+                 <span className="font-semibold text-white">Alamat:</span>{" "}
                 <span className="font-bold text-gray-200">Bendo, Padas, Ngawi</span>
               </p>
             </div>
